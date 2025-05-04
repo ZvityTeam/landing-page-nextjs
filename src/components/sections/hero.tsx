@@ -1,0 +1,114 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { PlayCircle } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { useState } from "react";
+import { AnimatedSection } from "../ui/animated-section";
+
+interface HeroProps {
+  title: React.ReactNode;
+  subtitle: string;
+  showVideo?: boolean;
+  videoUrl?: string;
+  alignment?: "center" | "left";
+  tagline?: string;
+}
+
+export function Hero({
+  title,
+  subtitle,
+  showVideo = true,
+  videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  alignment = "left",
+  tagline = "Spectra Product Overview",
+}: HeroProps) {
+  const [videoOpen, setVideoOpen] = useState(false);
+
+  return (
+    <section className="relative overflow-hidden py-16 md:py-24 bg-background">
+      <div className="container-custom">
+        <div
+          className={`flex flex-col ${
+            alignment === "center" ? "items-center text-center" : ""
+          } max-w-3xl ${alignment === "center" ? "mx-auto" : ""}`}
+        >
+          <AnimatedSection direction="up" delay={0.1}>
+            {tagline && (
+              <span className="inline-block text-xs font-semibold tracking-wider text-primary uppercase mb-3">
+                {tagline}
+              </span>
+            )}
+            <h1 className="heading-primary mb-6">{title}</h1>
+          </AnimatedSection>
+          <AnimatedSection direction="up" delay={0.2}>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
+              {subtitle}
+            </p>
+          </AnimatedSection>
+          <AnimatedSection direction="up" delay={0.4}>
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button className="bg-primary hover:bg-primary/90 rounded-full">
+                See all Reviews
+              </Button>
+
+              {showVideo && (
+                <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="outline"
+                      className="rounded-full flex items-center gap-2"
+                    >
+                      <PlayCircle size={20} className="text-primary" />
+                      Watch Video (1:24)
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[800px] p-0 bg-black">
+                    <iframe
+                      width="100%"
+                      height="450"
+                      src={videoUrl}
+                      title="Video Player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </DialogContent>
+                </Dialog>
+              )}
+            </div>
+            <div className="text-xs text-muted-foreground font-medium flex items-center">
+              <span className="mr-1">Scroll down for new section</span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8 12L8 4"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M4 8L8 12L12 8"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+
+      {/* Abstract shape decorations */}
+      <div className="absolute top-1/2 -translate-y-1/2 right-0 w-1/3 h-1/2 bg-secondary/10 rounded-l-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-1/4 w-1/4 h-1/4 bg-primary/5 rounded-full blur-3xl -z-10" />
+    </section>
+  );
+}
