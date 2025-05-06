@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
 type AnimatedImageProps = {
-  src: string;
+  src: string | "" | StaticImageData;
   alt: string;
   width: number;
   height: number;

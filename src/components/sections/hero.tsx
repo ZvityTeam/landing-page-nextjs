@@ -5,6 +5,8 @@ import { PlayCircle } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useState } from "react";
 import { AnimatedSection } from "../ui/animated-section";
+import { AnimatedImage } from "../ui/animated-image";
+import heroImage from "../../assets/hero.png";
 
 interface HeroProps {
   title: React.ReactNode;
@@ -21,13 +23,13 @@ export function Hero({
   showVideo = true,
   videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ",
   alignment = "left",
-  tagline = "Spectra Product Overview",
+  tagline = "TurinIQ",
 }: HeroProps) {
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
     <section className="relative overflow-hidden py-16 md:py-24 bg-background">
-      <div className="container-custom">
+      <div className="container-custom flex flex-col md:flex-row items-center justify-between">
         <div
           className={`flex flex-col ${
             alignment === "center" ? "items-center text-center" : ""
@@ -39,17 +41,15 @@ export function Hero({
                 {tagline}
               </span>
             )}
-            <h1 className="heading-primary mb-6">{title}</h1>
+            <h1 className="heading-primary font-medium mb-6">{title}</h1>
           </AnimatedSection>
           <AnimatedSection direction="up" delay={0.2}>
-            <p className="text-lg text-muted-foreground mb-8 max-w-2xl">
-              {subtitle}
-            </p>
+            <p className="text-md mb-8 max-w-2xl">{subtitle}</p>
           </AnimatedSection>
           <AnimatedSection direction="up" delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button className="bg-primary hover:bg-primary/90 rounded-full">
-                See all Reviews
+                Get Early Access
               </Button>
 
               {showVideo && (
@@ -60,7 +60,7 @@ export function Hero({
                       className="rounded-full flex items-center gap-2"
                     >
                       <PlayCircle size={20} className="text-primary" />
-                      Watch Video (1:24)
+                      Watch Demo
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="sm:max-w-[800px] p-0 bg-black">
@@ -77,7 +77,7 @@ export function Hero({
                 </Dialog>
               )}
             </div>
-            <div className="text-xs text-muted-foreground font-medium flex items-center">
+            {/* <div className="text-xs text-muted-foreground font-medium flex items-center">
               <span className="mr-1">Scroll down for new section</span>
               <svg
                 width="14"
@@ -101,8 +101,17 @@ export function Hero({
                   strokeLinejoin="round"
                 />
               </svg>
-            </div>
+            </div> */}
           </AnimatedSection>
+        </div>
+        <div>
+          <AnimatedImage
+            src={heroImage}
+            alt="Inbox"
+            width={350}
+            height={200}
+            className="w-full h-auto object-cover"
+          />
         </div>
       </div>
 

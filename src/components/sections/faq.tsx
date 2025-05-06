@@ -1,7 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface FaqItem {
@@ -28,14 +33,15 @@ export function Faq({
   backgroundColor = "bg-background",
   showTabs = true,
   categories = ["Tab one", "Tab two"],
-  tagline = "Spectra FAQs",
+  tagline = "TurinIQ FAQs",
 }: FaqProps) {
   const [activeTab, setActiveTab] = useState("all");
 
   // Function to filter FAQs by category
-  const filteredFaqs = activeTab === "all"
-    ? faqs
-    : faqs.filter(faq => faq.category === activeTab);
+  const filteredFaqs =
+    activeTab === "all"
+      ? faqs
+      : faqs.filter((faq) => faq.category === activeTab);
 
   return (
     <section className={`py-16 md:py-24 ${backgroundColor}`}>
@@ -50,7 +56,11 @@ export function Faq({
 
         <div className="text-center mb-12">
           <h2 className="heading-secondary mb-4">{title}</h2>
-          {description && <p className="text-muted-foreground max-w-2xl mx-auto">{description}</p>}
+          {description && (
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              {description}
+            </p>
+          )}
         </div>
 
         {showTabs && categories.length > 0 && (
@@ -74,7 +84,11 @@ export function Faq({
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full space-y-4">
             {filteredFaqs.map((faq) => (
-              <AccordionItem key={faq.id} value={faq.id} className="border border-border rounded-lg px-5 shadow-sm">
+              <AccordionItem
+                key={faq.id}
+                value={faq.id}
+                className="border border-border rounded-lg px-5 shadow-sm"
+              >
                 <AccordionTrigger className="text-base font-medium py-4">
                   {faq.question}
                 </AccordionTrigger>

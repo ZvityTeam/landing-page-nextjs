@@ -4,6 +4,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { AnimatedImage } from "../ui/animated-image";
 import { AnimatedSection } from "../ui/animated-section";
+import step1 from "../../assets/step1.png";
+import step2 from "../../assets/step2.png";
+import step3 from "../../assets/step3.png";
+import { Marquee } from "../ui/marquee";
 
 interface Feature {
   id: string;
@@ -11,6 +15,7 @@ interface Feature {
   description: string;
   icon?: string;
   iconColor?: string;
+  bulletPoints?: string[]; // Added for the new layout
 }
 
 interface Stat {
@@ -24,7 +29,7 @@ interface FeatureSectionProps {
   description?: string;
   features: Feature[];
   image?: string;
-  layout?: "grid" | "columns" | "cards";
+  layout?: "grid" | "columns" | "cards" | "image-like" | "marquee"; // Added new layout option
   backgroundColor?: string;
   imagePosition?: "right" | "left" | "bottom";
   showButton?: boolean;
@@ -48,10 +53,21 @@ export function FeatureSection({
   tagline,
   stats,
 }: FeatureSectionProps) {
+  // Split features into two groups for the marquee layout
+  const midPoint = Math.ceil(features.length / 2);
+  const leftFeatures = features.slice(0, midPoint);
+  const rightFeatures = features.slice(midPoint);
+
   return (
     <section className={`py-16 md:py-24 ${backgroundColor}`}>
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div
+          className={`grid ${
+            layout === "image-like"
+              ? "grid-cols-1"
+              : "grid-cols-1 lg:grid-cols-2"
+          }  gap-12 items-center`}
+        >
           {/* Text Content */}
           <AnimatedSection direction="up">
             <div
@@ -62,19 +78,21 @@ export function FeatureSection({
                   {tagline}
                 </span>
               )}
-              <h2 className="heading-secondary mb-6">{title}</h2>
+              <h1 className="heading-secondary font-medium md:text-6xl mb-6">
+                {title}
+              </h1>
               {description && (
-                <p className="text-lg text-muted-foreground mb-10 max-w-xl">
+                <p className="text-md text-muted-foreground mb-10 md:mb-16 max-w-xl">
                   {description}
                 </p>
               )}
 
               {/* Stats Display */}
               {stats && stats.length > 0 && (
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-10">
+                <div className="grid grid-cols-2 md:grid-cols-2 gap-10 mb-10">
                   {stats.map((stat) => (
                     <div key={stat.id} className="flex flex-col">
-                      <span className="text-3xl md:text-4xl font-bold mb-2 text-primary">
+                      <span className="text-2xl md:text-3xl font-semibold mb-2 text-primary">
                         {stat.value}
                       </span>
                       <span className="text-sm text-muted-foreground">
@@ -149,6 +167,57 @@ export function FeatureSection({
                 </div>
               )}
 
+              {layout === "image-like" && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-8">
+                  {features.map((feature) => (
+                    <div
+                      key={feature.id}
+                      className="bg-[#FDF9F5] rounded-2xl p-8 border border-black border-b-4 shadow-sm"
+                    >
+                      {feature.icon && (
+                        <div className="w-12 h-12 rounded-full flex items-center justify-center mb-6 bg-white border border-black border-b-2">
+                          <Image
+                            src={
+                              feature.id === "bot"
+                                ? step2
+                                : feature.id === "live"
+                                ? step3
+                                : step1
+                            }
+                            alt={feature.title}
+                            width={24}
+                            height={24}
+                            className="h-6 w-6 object-contain"
+                          />
+                        </div>
+                      )}
+                      <h3 className="font-bold text-lg mb-4 uppercase">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm mb-6">
+                        {feature.description}
+                      </p>
+                      {feature.bulletPoints &&
+                        feature.bulletPoints.length > 0 && (
+                          <ul className="space-y-6">
+                            {feature.bulletPoints.map((point, index) => (
+                              <li
+                                key={index}
+                                className="flex items-center text-sm text-muted-foreground"
+                              >
+                                <span className="w-5 h-5 p-2 text-xs rounded-full bg-orange-500 text-white flex items-center justify-center mr-2">
+                                  ✓
+                                </span>
+                                {point}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {showButton && (
                 <Button
                   className="bg-primary hover:bg-primary/90 rounded-full"
@@ -202,6 +271,84 @@ export function FeatureSection({
                     </div>
                   ))}
                 </AnimatedSection>
+              </div>
+            ) : layout === "marquee" ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Left Marquee (Scrolling Up) */}
+                <Marquee
+                  vertical={true}
+                  reverse={false}
+                  pauseOnHover={true}
+                  className="h-[400px] bg-[#FDF9F5] rounded-2xl border border-black border-b-4 shadow-sm"
+                >
+                  {leftFeatures.map((feature) => (
+                    <div key={feature.id} className="mb-6 p-6">
+                      {feature.icon && (
+                        <div
+                          className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-white border border-black border-b-2`}
+                        >
+                          <Image
+                            src={
+                              feature.id === "bot"
+                                ? step2
+                                : feature.id === "live"
+                                ? step3
+                                : step1
+                            }
+                            alt={feature.title}
+                            width={24}
+                            height={24}
+                            className="h-6 w-6 object-contain"
+                          />
+                        </div>
+                      )}
+                      <h3 className="font-bold text-lg mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {feature.description}
+                      </p>
+                    </div>
+                  ))}
+                </Marquee>
+
+                {/* Right Marquee (Scrolling Down) */}
+                <Marquee
+                  vertical={true}
+                  reverse={true}
+                  pauseOnHover={true}
+                  className="h-[400px] bg-[#FDF9F5] rounded-2xl border border-black border-b-4 shadow-sm"
+                >
+                  {rightFeatures.map((feature) => (
+                    <div key={feature.id} className="mb-6 p-6">
+                      {feature.icon && (
+                        <div
+                          className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-white border border-black border-b-2`}
+                        >
+                          <Image
+                            src={
+                              feature.id === "bot"
+                                ? step2
+                                : feature.id === "live"
+                                ? step3
+                                : step1
+                            }
+                            alt={feature.title}
+                            width={24}
+                            height={24}
+                            className="h-6 w-6 object-contain"
+                          />
+                        </div>
+                      )}
+                      <h3 className="font-bold text-lg mb-2">
+                        {feature.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm">
+                        {feature.description}
+                      </p>
+                    </div>
+                  ))}
+                </Marquee>
               </div>
             ) : null}
           </div>

@@ -5,10 +5,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const pathname = usePathname();
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -26,7 +27,7 @@ const Header = () => {
             <div className="w-5 h-5 bg-primary rounded-sm flex items-center justify-center mr-1">
               <div className="w-2 h-2 bg-white rounded-full" />
             </div>
-            <span className="font-bold text-xl">Spectra.</span>
+            <span className="font-bold text-xl">TurinIQ.</span>
           </div>
         </Link>
 
@@ -36,7 +37,11 @@ const Header = () => {
             <Link
               key={item.name}
               href={item.href}
-              className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors rounded-md"
+              className={`px-3 py-2 text-sm font-medium rounded-full transition-colors ${
+                pathname === item.href
+                  ? "text-foreground bg-primary/10 border border-black rounded-full border-b-2"
+                  : "text-foreground/80 hover:text-foreground"
+              }`}
             >
               {item.name}
             </Link>
