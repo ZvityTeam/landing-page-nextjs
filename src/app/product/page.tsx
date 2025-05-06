@@ -7,6 +7,7 @@ import { ClientsLogo } from "@/components/sections/clients-logo";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import { SeparatorSection } from "@/components/sections/separator-section";
+import product1 from "../../assets/product-hero1.png";
 
 export default function ProductPage() {
   const integrations = [
@@ -286,7 +287,7 @@ export default function ProductPage() {
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <Image
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  src={product1}
                   alt="Dashboard Interface"
                   width={600}
                   height={400}
