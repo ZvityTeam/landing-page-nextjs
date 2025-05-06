@@ -279,13 +279,16 @@ export function FeatureSection({
                   vertical={true}
                   reverse={false}
                   pauseOnHover={true}
-                  className="h-[400px] bg-[#FDF9F5] rounded-2xl border border-black border-b-4 shadow-sm"
+                  className="h-[400px] "
                 >
                   {leftFeatures.map((feature) => (
-                    <div key={feature.id} className="mb-6 p-6">
+                    <div
+                      key={feature.id}
+                      className="mb-6 p-6 bg-[#FDF9F5] rounded-2xl border border-black border-b-4 shadow-sm"
+                    >
                       {feature.icon && (
                         <div
-                          className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-white border border-black border-b-2`}
+                          className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-[#FDF9F5] border border-black border-b-4 shadow-sm`}
                         >
                           <Image
                             src={
@@ -317,13 +320,16 @@ export function FeatureSection({
                   vertical={true}
                   reverse={true}
                   pauseOnHover={true}
-                  className="h-[400px] bg-[#FDF9F5] rounded-2xl border border-black border-b-4 shadow-sm"
+                  className="h-[400px] "
                 >
                   {rightFeatures.map((feature) => (
-                    <div key={feature.id} className="mb-6 p-6">
+                    <div
+                      key={feature.id}
+                      className="mb-6 p-6 bg-[#FDF9F5] rounded-2xl border border-black border-b-4 shadow-sm"
+                    >
                       {feature.icon && (
                         <div
-                          className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-white border border-black border-b-2`}
+                          className={`w-12 h-12 rounded-full flex items-center justify-center mb-4 bg-[#FDF9F5] border border-black border-b-4 shadow-sm`}
                         >
                           <Image
                             src={
