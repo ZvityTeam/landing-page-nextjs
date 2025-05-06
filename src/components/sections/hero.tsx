@@ -7,6 +7,7 @@ import { useState } from "react";
 import { AnimatedSection } from "../ui/animated-section";
 import { AnimatedImage } from "../ui/animated-image";
 import heroImage from "../../assets/hero.png";
+import Link from "next/link";
 
 interface HeroProps {
   title: React.ReactNode;
@@ -15,6 +16,7 @@ interface HeroProps {
   videoUrl?: string;
   alignment?: "center" | "left";
   tagline?: string;
+  showImage?: boolean;
 }
 
 export function Hero({
@@ -24,16 +26,23 @@ export function Hero({
   videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ",
   alignment = "left",
   tagline = "TurinIQ",
+  showImage = true,
 }: HeroProps) {
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
-    <section className="relative overflow-hidden py-16 md:py-24 bg-background">
-      <div className="container-custom flex flex-col md:flex-row items-center justify-between">
+    <section className="relative overflow-hidden py-16 md:py-24 bg-white">
+      <div
+        className={`container-custom flex flex-col md:flex-row items-center ${
+          showImage ? "justify-between" : "justify-center"
+        }`}
+      >
         <div
           className={`flex flex-col ${
             alignment === "center" ? "items-center text-center" : ""
-          } max-w-3xl ${alignment === "center" ? "mx-auto" : ""}`}
+          } ${showImage ? "max-w-3xl" : "max-w-5xl"} ${
+            alignment === "center" ? "mx-auto" : ""
+          }`}
         >
           <AnimatedSection direction="up" delay={0.1}>
             {tagline && (
@@ -48,10 +57,11 @@ export function Hero({
           </AnimatedSection>
           <AnimatedSection direction="up" delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button className="bg-primary hover:bg-primary/90 rounded-full">
-                Get Early Access
-              </Button>
-
+              <Link href="#access">
+                <Button className="bg-primary hover:bg-primary/90 rounded-full">
+                  Get Early Access
+                </Button>
+              </Link>
               {showVideo && (
                 <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
                   <DialogTrigger asChild>
@@ -104,20 +114,26 @@ export function Hero({
             </div> */}
           </AnimatedSection>
         </div>
-        <div>
-          <AnimatedImage
-            src={heroImage}
-            alt="Inbox"
-            width={350}
-            height={200}
-            className="w-full h-auto object-cover"
-          />
-        </div>
+        {showImage && (
+          <div>
+            <AnimatedImage
+              src={heroImage}
+              alt="Inbox"
+              width={400}
+              height={200}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        )}
       </div>
 
-      {/* Abstract shape decorations */}
-      <div className="absolute top-1/2 -translate-y-1/2 right-0 w-1/3 h-1/2 bg-secondary/10 rounded-l-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-1/4 w-1/4 h-1/4 bg-primary/5 rounded-full blur-3xl -z-10" />
+      {showImage && (
+        <>
+          {/* Abstract shape decorations */}
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 w-1/3 h-1/2 bg-secondary/10 rounded-l-full blur-3xl -z-10" />
+          <div className="absolute bottom-0 left-1/4 w-1/4 h-1/4 bg-primary/5 rounded-full blur-3xl -z-10" />
+        </>
+      )}
     </section>
   );
 }

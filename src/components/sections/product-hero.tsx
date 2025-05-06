@@ -17,6 +17,7 @@ interface HeroProps {
   videoUrl?: string;
   alignment?: "center" | "left";
   tagline?: string;
+  page?: string;
 }
 
 export function Hero({
@@ -26,6 +27,7 @@ export function Hero({
   videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ",
   alignment = "left",
   tagline = "TurinIQ",
+  page,
 }: HeroProps) {
   const [videoOpen, setVideoOpen] = useState(false);
 
@@ -35,7 +37,9 @@ export function Hero({
         <div
           className={`flex flex-col ${
             alignment === "center" ? "items-center text-center" : ""
-          } max-w-3xl ${alignment === "center" ? "mx-auto" : ""}`}
+          } ${page === "product" ? "max-w-5xl" : "max-w-3xl"} ${
+            alignment === "center" ? "mx-auto" : ""
+          }`}
         >
           <AnimatedSection direction="up" delay={0.1}>
             {tagline && (

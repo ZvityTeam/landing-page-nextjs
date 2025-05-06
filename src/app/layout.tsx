@@ -6,9 +6,10 @@ import Footer from "@/components/layout/footer";
 import ClientBody from "./ClientBody";
 
 export const metadata: Metadata = {
-  title: "Spectra - SaaS Website Template",
+  title: "TurinIQ – AI Messaging Platform for Modern Businesses",
   description:
-    "Spectra is a modern, light-styled technology template packed with features and details. Easily customized, it's the perfect solution for modern businesses wanting to get online and perform effectively.",
+    "TurinIQ is an AI-powered messaging platform that automates customer engagement across WhatsApp, Instagram, Messenger, LinkedIn, Gmail, and more. Empower your business with smart, multi-platform conversations, lead generation, and seamless integrations.",
+  icons: "https://framerusercontent.com/images/XWvK2ADcLvT8410ax6gDekOnVpA.svg",
 };
 
 export default function RootLayout({

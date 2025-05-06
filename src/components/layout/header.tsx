@@ -49,11 +49,11 @@ const Header = () => {
         </nav>
 
         {/* Sign Up Button */}
-        <div className="hidden md:block">
+        <Link href="#access" className="hidden md:block">
           <Button className="bg-primary hover:bg-primary/90 rounded-full">
-            Sign up for free
+            Get Early Access
           </Button>
-        </div>
+        </Link>
 
         {/* Mobile Menu */}
         <div className="md:hidden">
@@ -76,9 +76,11 @@ const Header = () => {
                     {item.name}
                   </Link>
                 ))}
-                <Button className="bg-primary hover:bg-primary/90 mt-4 rounded-full">
-                  Sign up for free
-                </Button>
+                <Link href="#access">
+                  <Button className="bg-primary hover:bg-primary/90 mt-4 rounded-full">
+                    Get Early Access
+                  </Button>
+                </Link>
               </nav>
             </SheetContent>
           </Sheet>

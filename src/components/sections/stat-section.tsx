@@ -29,6 +29,7 @@ interface FeatureSectionProps {
   description?: string;
   features: Feature[];
   image?: string;
+  id?: string;
   layout?: "grid" | "columns" | "cards" | "image-like";
   backgroundColor?: string;
   imagePosition?: "right" | "left" | "bottom";
@@ -45,6 +46,7 @@ export function StatSection({
   description,
   features,
   image,
+  id,
   layout = "grid",
   backgroundColor = "bg-background",
   imagePosition = "right",
@@ -58,7 +60,7 @@ export function StatSection({
   const [videoOpen, setVideoOpen] = useState(false);
 
   return (
-    <section className={`py-16 md:py-24 ${backgroundColor}`}>
+    <section id={id} className={`py-16 md:py-24 ${backgroundColor}`}>
       <div className="container-custom">
         <div
           className={`flex flex-col md:flex-row items-center justify-between`}

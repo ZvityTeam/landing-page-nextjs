@@ -32,10 +32,20 @@ export function Faq({
   faqs,
   backgroundColor = "bg-background",
   showTabs = true,
-  categories = ["Tab one", "Tab two"],
+  categories = [],
   tagline = "TurinIQ FAQs",
 }: FaqProps) {
   const [activeTab, setActiveTab] = useState("all");
+  const ITEMS_PER_PAGE = 5;
+
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const totalPages = Math.ceil(faqs.length / ITEMS_PER_PAGE);
+
+  const paginatedFaqs = faqs.slice(
+    currentPage * ITEMS_PER_PAGE,
+    (currentPage + 1) * ITEMS_PER_PAGE
+  );
 
   // Function to filter FAQs by category
   const filteredFaqs =
@@ -83,10 +93,10 @@ export function Faq({
 
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="w-full space-y-4">
-            {filteredFaqs.map((faq) => (
+            {paginatedFaqs.map((faq) => (
               <AccordionItem
-                key={faq.id}
-                value={faq.id}
+                key={faq.question}
+                value={faq.answer}
                 className="border border-border rounded-lg px-5 shadow-sm"
               >
                 <AccordionTrigger className="text-base font-medium py-4">
@@ -98,6 +108,17 @@ export function Faq({
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+        <div className="flex justify-center items-center gap-2 mt-6">
+          {Array.from({ length: totalPages }).map((_, pageIndex) => (
+            <button
+              key={pageIndex}
+              onClick={() => setCurrentPage(pageIndex)}
+              className={`h-3 w-3 rounded-full ${
+                currentPage === pageIndex ? "bg-primary" : "bg-neutral-400"
+              } transition-all`}
+            />
+          ))}
         </div>
       </div>
     </section>

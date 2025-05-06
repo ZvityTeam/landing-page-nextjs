@@ -31,21 +31,21 @@ export default function ProductPage() {
       icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/shopify.svg",
     },
     {
-      name: "Zendesk",
-      icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/zendesk.svg",
-    },
-    {
       name: "Salesforce",
       icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/salesforce.svg",
     },
-    {
-      name: "HubSpot",
-      icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/hubspot.svg",
-    },
-    {
-      name: "Zoho",
-      icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/zoho.svg",
-    },
+    // {
+    //   name: "Zendesk",
+    //   icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/zendesk.svg",
+    // },
+    // {
+    //   name: "HubSpot",
+    //   icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/hubspot.svg",
+    // },
+    // {
+    //   name: "Zoho",
+    //   icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/zoho.svg",
+    // },
   ];
 
   // Feature data
@@ -87,32 +87,74 @@ export default function ProductPage() {
   // FAQ data
   const faqs = [
     {
-      id: "faq-1",
-      question: "How does Spectra differ from other platforms?",
+      question: "How does TurinIQ work?",
       answer:
-        "Spectra stands out with its intuitive interface, comprehensive integration capabilities, and powerful analytics tools all in one platform. Our focus on user experience and seamless workflow makes us unique in the market.",
-      category: "general",
+        "You provide us with customer-facing information (product lists, return policies, pricing, etc.), and we create an AI assistant that handles all customer-facing communication across your channels (sales + support).",
     },
     {
-      id: "faq-2",
-      question: "Can I migrate data from another platform?",
+      question: "What are the benefits for businesses?",
       answer:
-        "Yes, Spectra includes powerful migration tools that make transferring your data from other platforms simple and efficient. Our team can also provide migration assistance if needed.",
-      category: "technical",
+        "• AI handles common queries, reducing load on your team.\n• Human-in-the-loop: unresolved queries get escalated as tickets.\n• Insights from sentiment analysis help your team prioritize smarter.\n• Save money and improve response times.",
     },
     {
-      id: "faq-3",
-      question: "What kind of support do you offer?",
+      question: "Is the AI customizable for different industries or workflows?",
       answer:
-        "We provide 24/7 customer support through chat, email, and phone. Our Pro and Enterprise plans include dedicated account managers and priority support.",
-      category: "support",
+        "Yes, it is adaptable to different industries, but we currently do not support advanced custom workflows.",
     },
     {
-      id: "faq-4",
-      question: "Is Spectra suitable for small businesses?",
+      question: "Does this replace or support human agents?",
       answer:
-        "Absolutely! Spectra scales with your business, offering plans suitable for teams of all sizes. Our Free and Plus plans are designed specifically with small businesses in mind.",
-      category: "general",
+        "It augments them — the AI handles routine queries, while edge cases are escalated to humans.",
+    },
+    {
+      question: "Can it support multiple languages?",
+      answer:
+        "Not yet — multilingual support is on our roadmap for future updates.",
+    },
+
+    {
+      question: "Where is my data stored and how is it secured?",
+      answer:
+        "All data is securely stored in Singapore using AWS and Azure infrastructure.",
+    },
+    {
+      question: "Is customer data used to train the AI?",
+      answer:
+        "Yes, but only to improve your own assistant — data is not shared or used elsewhere.",
+    },
+    {
+      question: "What is the integration process like?",
+      answer:
+        "• Answer a short onboarding questionnaire.\n• Share files like product catalogs, service guides, etc.\n• We deploy your assistant to WhatsApp, Instagram, Facebook Messenger, and your website.",
+    },
+    {
+      question: "How long does it take to go live?",
+      answer: "Typically 10–20 minutes once we have the required info.",
+    },
+    {
+      question: "What’s the pricing model?",
+      answer:
+        "It will be subscription-based, but pricing details will be announced post-seed round.",
+    },
+    {
+      question: "Are there any upfront costs?",
+      answer: "No upfront costs.",
+    },
+    {
+      question: "Is there a trial or beta available?",
+      answer:
+        "Yes! You can either:\n• Join our beta program for early access.\n• Or try a 2-week free trial.",
+    },
+    {
+      question: "What kind of support do you provide?",
+      answer:
+        "• 24/7 setup and onboarding support.\n• 48-hour resolution window for business-facing tickets.",
+    },
+    {
+      question:
+        "Will this work with my existing tools (like CRM or ticketing systems)?",
+      answer:
+        "We’re building integrations — for now, please reach out to info@turiniq.com with your use case.",
     },
   ];
 
@@ -167,15 +209,19 @@ export default function ProductPage() {
       <Hero
         title={
           <>
-            The Complete
+            Where Customer Conversations
             <br />
-            <span className="text-primary-gradient">Business Solution</span>
+            <span className="text-primary-gradient">
+              Become Business Superpower
+            </span>
           </>
         }
-        subtitle="Our comprehensive platform streamlines your workflows, enhances productivity, and drives business growth through powerful analytics and seamless integrations."
+        subtitle="TurinIQ brings all your support channels into one AI-powered platform—automating the boring, organizing the messy, and uncovering insights that actually move your business forward.
+"
         showVideo={true}
         alignment="center"
-        tagline="MEET SPECTRA"
+        tagline="MEET TURINIQ"
+        page="product"
       />
       {/* Clients Logo Section */}
       <SeparatorSection features={featuresData} />
@@ -311,63 +357,6 @@ export default function ProductPage() {
           </div>
         </div>
       </section>
-      {/* Business-Ready Integrations */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="inline-block text-xs font-semibold tracking-wider text-primary uppercase mb-3">
-                Business-Ready Integrations
-              </span>
-              <h2 className="heading-secondary mb-6">
-                Built to scale with you—whatever tools you use.
-              </h2>
-              <p className="text-muted-foreground mb-8">
-                Whether you're a startup or enterprise, TurinIQ plugs into your
-                existing ecosystem and grows with you.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start">
-                  <div className="mt-1 mr-3 text-primary">
-                    <Check size={18} />
-                  </div>
-                  <p>Seamless Integrations with Your Tech Stack</p>
-                </div>
-                <div className="flex items-start">
-                  <div className="mt-1 mr-3 text-primary">
-                    <Check size={18} />
-                  </div>
-                  <p>Omnichannel Setup in Minutes</p>
-                </div>
-                <div className="flex items-start">
-                  <div className="mt-1 mr-3 text-primary">
-                    <Check size={18} />
-                  </div>
-                  <p>Enterprise-Grade Security</p>
-                </div>
-              </div>
-
-              {/* <Button className="rounded-full bg-primary hover:bg-primary/90">
-                Explore Dashboard
-              </Button> */}
-            </div>
-            <div className="relative">
-              <div className="rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-                  alt="Dashboard Interface"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-xl -z-10" />
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-secondary/20 rounded-full blur-xl -z-10" />
-            </div>
-          </div>
-        </div>
-      </section>
       {/* Integration Feature */}
       <section className="py-16 md:py-24 bg-muted/30">
         <div className="container-custom">
@@ -404,11 +393,11 @@ export default function ProductPage() {
             ))}
           </div>
 
-          <div className="mt-12 text-center">
+          {/* <div className="mt-12 text-center">
             <Button className="rounded-full bg-primary hover:bg-primary/90">
               View All Integrations
             </Button>
-          </div>
+          </div> */}
         </div>
       </section>
       {/* Testimonials
