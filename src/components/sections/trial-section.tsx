@@ -95,8 +95,7 @@ export function TrialSection() {
 
           {/* Description */}
           <p className="text-sm  mb-10">
-            Give Prowly a try and see for yourself if it’s a good fit for your
-            PR needs.
+            Give us a try and see for yourself if it’s a good fit for your needs.
           </p>
 
           {/* Email Input and Button */}
