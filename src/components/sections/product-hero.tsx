@@ -24,7 +24,7 @@ export function Hero({
   title,
   subtitle,
   showVideo = true,
-  videoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  videoUrl = "https://www.youtube.com/watch?v=ikZiD3wSeKs",
   alignment = "left",
   tagline = "TurinIQ",
   page,
