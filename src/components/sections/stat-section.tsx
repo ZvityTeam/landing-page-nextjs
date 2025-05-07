@@ -55,7 +55,7 @@ export function StatSection({
   buttonLink = "#",
   tagline,
   stats,
-  videoUrl = "https://www.youtube.com/watch?v=ikZiD3wSeKs", // Default video URL
+  videoUrl = "https://www.youtube.com/embed/ikZiD3wSeKs?si=BQM9Ng2jC959JqCj", // Default video URL
 }: FeatureSectionProps) {
   const [videoOpen, setVideoOpen] = useState(false);
 
