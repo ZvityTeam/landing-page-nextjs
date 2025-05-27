@@ -4,6 +4,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import ClientBody from "./ClientBody";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata: Metadata = {
   title: "TurinIQ – AI Messaging Platform for Modern Businesses",
