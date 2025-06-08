@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Check } from "lucide-react";
 import { SeparatorSection } from "@/components/sections/separator-section";
 import product1 from "../../assets/product-hero1.png";
+import { TrialSection } from "@/components/sections/trial-section";
 
 export default function ProductPage() {
   const integrations = [
@@ -433,6 +434,7 @@ export default function ProductPage() {
           </div>
         </div>
       </section> */}
+            <TrialSection />
       {/* FAQ Section */}
       <Faq
         faqs={faqs}

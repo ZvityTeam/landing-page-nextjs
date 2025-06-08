@@ -22,6 +22,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
 
       <body>
+        <link rel="preload" href="https://waitlister.me/js/embed.js" as="script"></link>
       <script src="https://waitlister.me/js/embed.js" defer></script>
         <ClientBody>
           <div className="flex flex-col min-h-screen">

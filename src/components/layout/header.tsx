@@ -5,11 +5,12 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const navigation = [
     { name: "Home", href: "/" },
     { name: "About", href: "/about" },
@@ -17,6 +18,33 @@ const Header = () => {
     // { name: "Blog", href: "/blog" },
     // { name: "Pricing", href: "/pricing" },
   ];
+
+    // Function to handle smooth scrolling to the TrialSection
+  const handleScrollToAccess = (e) => {
+    e.preventDefault(); // Prevent default behavior
+    const targetId = "access";
+    const currentPath = pathname === "/" ? "" : pathname; // Handle root path
+    const targetPath = `${currentPath}#${targetId}`; // Append #access to current path
+    const fallbackPath = "/product#access"; // Fallback if section not found
+
+    // Check if the access section exists on the current page
+    const element = document.getElementById(targetId);
+    if (element) {
+      // If on the correct page and section exists, scroll directly
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to the current page with #access or fallback to product page
+      router.push(pathname === "/product" ? targetPath : fallbackPath);
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Delay to ensure page navigation completes
+    }
+    setIsMenuOpen(false); // Close mobile menu if open
+  };
+
 
   return (
     <header className="py-4 border-b border-border/40">
@@ -49,11 +77,12 @@ const Header = () => {
         </nav>
 
         {/* Sign Up Button */}
-        <Link href="#access" className="hidden md:block">
-          <Button className="bg-primary hover:bg-primary/90 rounded-full">
-            Get Early Access
-          </Button>
-        </Link>
+        <Button
+          onClick={handleScrollToAccess}
+          className="hidden md:block bg-primary hover:bg-primary/90 rounded-full"
+        >
+          Get Early Access
+        </Button>
 
         {/* Mobile Menu */}
         <div className="md:hidden">
@@ -76,11 +105,11 @@ const Header = () => {
                     {item.name}
                   </Link>
                 ))}
-                <Link href="#access">
-                  <Button className="bg-primary hover:bg-primary/90 mt-4 rounded-full">
+                {/* <Link href="#access"> */}
+                  <Button className="bg-primary hover:bg-primary/90 mt-4 rounded-full"  onClick={handleScrollToAccess}>
                     Get Early Access
                   </Button>
-                </Link>
+                {/* </Link> */}
               </nav>
             </SheetContent>
           </Sheet>

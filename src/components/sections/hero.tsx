@@ -8,6 +8,7 @@ import { AnimatedSection } from "../ui/animated-section";
 import { AnimatedImage } from "../ui/animated-image";
 import heroImage from "../../assets/hero.png";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 interface HeroProps {
   title: React.ReactNode;
@@ -29,6 +30,33 @@ export function Hero({
   showImage = true,
 }: HeroProps) {
   const [videoOpen, setVideoOpen] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+      // Function to handle smooth scrolling to the TrialSection
+  const handleScrollToAccess = (e) => {
+    e.preventDefault(); // Prevent default behavior
+    const targetId = "access";
+    const currentPath = pathname === "/" ? "" : pathname; // Handle root path
+    const targetPath = `${currentPath}#${targetId}`; // Append #access to current path
+    const fallbackPath = "/product#access"; // Fallback if section not found
+
+    // Check if the access section exists on the current page
+    const element = document.getElementById(targetId);
+    if (element) {
+      // If on the correct page and section exists, scroll directly
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to the current page with #access or fallback to product page
+      router.push(pathname === "/product" ? targetPath : fallbackPath);
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Delay to ensure page navigation completes
+    }
+  };
 
   return (
     <section className="relative overflow-hidden py-16 md:py-24 bg-white">
@@ -57,11 +85,11 @@ export function Hero({
           </AnimatedSection>
           <AnimatedSection direction="up" delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Link href="#access">
-                <Button className="bg-primary hover:bg-primary/90 rounded-full">
+              {/* <Link href="#access"> */}
+                <Button className="bg-primary hover:bg-primary/90 rounded-full" onClick={handleScrollToAccess}>
                   Get Early Access
                 </Button>
-              </Link>
+              {/* </Link> */}
               {showVideo && (
                 <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
                   <DialogTrigger asChild>
