@@ -267,7 +267,7 @@ export default function AboutPage() {
       </section> */}
 
       {/* Collaboration Section */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -298,7 +298,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Team Members Section */}
       {/* <section className="py-16 md:py-24 bg-background">
