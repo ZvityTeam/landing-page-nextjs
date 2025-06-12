@@ -88,12 +88,24 @@ const Footer = () => {
           {/* Newsletter */}
           <div className="md:w-1/4">
             <h3 className="font-bold mb-4">Reach out to us at</h3>
-            <div className="flex">
+            <div className="flex flex-col space-y-5">
               <a
                 href="mailto:contact@turiniq.com"
                 className="text-blue-600 hover:underline"
               >
                 info@turiniq.com
+              </a>
+              <a
+                href="https://www.producthunt.com/products/turiniq?embed=true&utm_source=badge-featured&utm_medium=badge&utm_source=badge-turiniq"
+                target="_blank"
+              >
+                <img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=975769&theme=light&t=1749768384008"
+                  alt="TurinIQ - Customer&#0032;AI&#0032;that&#0032;sells&#0044;&#0032;supports&#0044;&#0032;and&#0032;escalates | Product Hunt"
+                  style={{ width: "250px", height: "54px" }}
+                  width="250"
+                  height="54"
+                />
               </a>
             </div>
           </div>
