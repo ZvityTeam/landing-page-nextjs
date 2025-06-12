@@ -35,7 +35,7 @@ export function Hero({
   const router = useRouter();
 
   // Function to handle smooth scrolling to the TrialSection
-  const handleScrollToAccess = (e) => {
+  const handleScrollToAccess = (e: { preventDefault: () => void; }) => {
     e.preventDefault(); // Prevent default behavior
     const targetId = "access";
     const currentPath = pathname === "/" ? "" : pathname; // Handle root path

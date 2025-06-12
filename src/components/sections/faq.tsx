@@ -10,7 +10,7 @@ import {
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface FaqItem {
-  id: string;
+  id?: string;
   question: string;
   answer: string;
   category?: string;
