@@ -1,14 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { PlayCircle } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { useState } from "react";
-import { AnimatedSection } from "../ui/animated-section";
-import { AnimatedImage } from "../ui/animated-image";
-import heroImage from "../../assets/hero.png";
-import Link from "next/link";
+import { PlayCircle } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
+import heroImage from "../../assets/hero.png";
+import { AnimatedImage } from "../ui/animated-image";
+import { AnimatedSection } from "../ui/animated-section";
 
 interface HeroProps {
   title: React.ReactNode;
@@ -18,6 +17,7 @@ interface HeroProps {
   alignment?: "center" | "left";
   tagline?: string;
   showImage?: boolean;
+  subText?: string;
 }
 
 export function Hero({
@@ -28,12 +28,13 @@ export function Hero({
   alignment = "left",
   tagline = "TurinIQ",
   showImage = true,
+  subText = "No code. No chaos. Just seamless customer interactions.",
 }: HeroProps) {
   const [videoOpen, setVideoOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
-      // Function to handle smooth scrolling to the TrialSection
+  // Function to handle smooth scrolling to the TrialSection
   const handleScrollToAccess = (e) => {
     e.preventDefault(); // Prevent default behavior
     const targetId = "access";
@@ -86,9 +87,12 @@ export function Hero({
           <AnimatedSection direction="up" delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
               {/* <Link href="#access"> */}
-                <Button className="bg-primary hover:bg-primary/90 rounded-full" onClick={handleScrollToAccess}>
-                  Get Early Access
-                </Button>
+              <Button
+                className="bg-primary hover:bg-primary/90 rounded-full"
+                onClick={handleScrollToAccess}
+              >
+                Get Early Access
+              </Button>
               {/* </Link> */}
               {showVideo && (
                 <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
@@ -115,31 +119,9 @@ export function Hero({
                 </Dialog>
               )}
             </div>
-            {/* <div className="text-xs text-muted-foreground font-medium flex items-center">
-              <span className="mr-1">Scroll down for new section</span>
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8 12L8 4"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M4 8L8 12L12 8"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div> */}
+            <div className="text-xs text-muted-foreground font-medium flex items-center">
+              <span className="mr-1">{subText}</span>
+            </div>
           </AnimatedSection>
         </div>
         {showImage && (

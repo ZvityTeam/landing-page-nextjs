@@ -1,10 +1,7 @@
-import { Hero } from "@/components/sections/hero";
-import { ClientsLogo } from "@/components/sections/clients-logo";
-import { FeatureSection } from "@/components/sections/feature-section";
-import { Testimonials } from "@/components/sections/testimonials";
 import { Faq } from "@/components/sections/faq";
-import Image from "next/image";
+import { Hero } from "@/components/sections/hero";
 import { TrialSection } from "@/components/sections/trial-section";
+import Image from "next/image";
 import step1 from "../../assets/step1.png";
 import step2 from "../../assets/step2.png";
 import step3 from "../../assets/step3.png";
@@ -14,25 +11,25 @@ export default function AboutPage() {
   const companyValues = [
     {
       id: "value-1",
-      title: "Customer-Centric Innovation",
+      title: "Innovation That Serves",
       description:
-        "We obsess over simplifying support experiences. Everything we build is driven by our goal to make communication smoother, faster, and more human—even when it’s AI.",
+        "We build with one goal in mind: making customer conversations smarter, simpler, and more human—powered by AI that works for you, not the other way around.",
       icon: step1,
       iconColor: "bg-orange-100",
     },
     {
       id: "value-2",
-      title: "Built for Scale, Designed for Humans",
+      title: "Scalable, Yet Personal",
       description:
-        "We combine enterprise-grade performance with user-friendly design. Whether you're a growing startup or a large business, our platform fits seamlessly and grows with you.",
+        "From scrappy teams to global brands, TurinIQ adapts to your scale—without ever losing the personal touch your customers expect.",
       icon: step2,
       iconColor: "bg-blue-100",
     },
     {
       id: "value-3",
-      title: "Transparency & Trust",
+      title: "Built on Trust",
       description:
-        "We believe in building honest relationships—with our clients, our users, and each other. No fluff, just real solutions that deliver real results.",
+        "We value clarity over jargon, privacy over gimmicks, and real outcomes over vanity metrics. Trust is earned—and we work for it daily.",
       icon: step3,
       iconColor: "bg-green-100",
     },
@@ -163,6 +160,7 @@ export default function AboutPage() {
     <>
       {/* Hero Section */}
       <Hero
+        tagline="The Team Behind the Tech"
         title={
           <>
             We’re a Bold Team on a<br />
@@ -172,9 +170,10 @@ export default function AboutPage() {
             Customer Interactions
           </>
         }
-        subtitle="At TurinIQ, we’re building more than just a product—we’re creating a smarter, faster, and more human way for businesses to connect with their customers. Backed by innovation and driven by impact, our team is committed to transforming how support teams work and grow"
+        subtitle="We’re not just building software—we’re reshaping how businesses support, engage, and grow with their customers. Fueled by innovation and driven by purpose, our team is on a mission to humanize every interaction."
         showVideo={false}
         showImage={false}
+        subText="Inside the Vision & Values of TurinIQ"
       />
 
       {/* About Company Section */}
@@ -183,29 +182,22 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
               <h2 className="heading-secondary mb-6">
-                At TurinIQ, we believe the future of customer support is smart,
-                simple, and scalable.
+                The future of customer conversations is simple, intelligent, and
+                built to scale.
               </h2>
             </div>
             <div className="grid grid-cols-1 gap-8">
               <p className="text-muted-foreground mb-8">
-                We started with a bold idea: businesses shouldn’t have to choose
-                between speed, personalization, and efficiency when talking to
-                their customers. So we built a platform that brings them all
-                together—powered by AI, made for humans. From retail shops to
-                tech startups, teams use TurinIQ to untangle support chaos,
-                automate the repetitive, and actually connect with
-                customers—wherever they are.
+                We built TurinIQ to unify how businesses handle both support and
+                sales—without compromising on speed, personalization, or
+                clarity. Our AI-first platform automates what slows you down,
+                captures every opportunity to convert, and gives your team the
+                tools to respond faster, sell smarter, and build lasting
+                customer trust. Whether it's a lead or a help request, TurinIQ
+                makes every conversation count.
               </p>
             </div>
           </div>
-
-          {/* <div className="mt-16">
-            <h3 className="text-xl font-semibold mb-8">
-              Companies solve problems faster with our technology
-            </h3>
-            <ClientsLogo backgroundColor="bg-transparent" />
-          </div> */}
         </div>
       </section>
 

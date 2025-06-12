@@ -1,15 +1,7 @@
-import { Hero } from "@/components/sections/hero";
-import { ClientsLogo } from "@/components/sections/clients-logo";
-import { FeatureSection } from "@/components/sections/feature-section";
-import { Testimonials } from "@/components/sections/testimonials";
 import { Faq } from "@/components/sections/faq";
-import { Pricing } from "@/components/sections/pricing";
-import Image from "next/image";
-import step1 from "../assets/step1.png";
-import step2 from "../assets/step2.png";
-import step3 from "../assets/step3.png";
+import { FeatureSection } from "@/components/sections/feature-section";
+import { Hero } from "@/components/sections/hero";
 import { StatSection } from "@/components/sections/stat-section";
-import { SeparatorSection } from "@/components/sections/separator-section";
 import { TrialSection } from "@/components/sections/trial-section";
 
 export default function Home() {
@@ -45,15 +37,21 @@ export default function Home() {
   const stats = [
     {
       id: "stat-1",
-      value: "10-Minute Setup",
+      value: "Live in 10 Minutes",
       label:
-        "Get started in minutes—no developers, no downtime. Just connect and go.",
+        "No dev time, no setup headaches. Just connect your channels and go.",
     },
     {
       id: "stat-2",
-      value: "24/7 Active Chat",
+      value: "24/7 Smart Chat",
       label:
-        "Never miss a message again. Our AI-powered chatbot stays online even when your team’s offline.",
+        "AI handles customer queries day and night — even when your team is away.",
+    },
+    {
+      id: "stat-3",
+      value: "Auto Escalations",
+      label:
+        "Complex queries? Our system flags them for human follow-up — instantly.",
     },
   ];
 
@@ -96,72 +94,67 @@ export default function Home() {
     {
       question: "How does TurinIQ work?",
       answer:
-        "You provide us with customer-facing information (product lists, return policies, pricing, etc.), and we create an AI assistant that handles all customer-facing communication across your channels (sales + support).",
+        "You share your product info, pricing, and policies—we build an AI assistant that manages all customer conversations across your channels.",
     },
     {
       question: "What are the benefits for businesses?",
       answer:
-        "• AI handles common queries, reducing load on your team.\n• Human-in-the-loop: unresolved queries get escalated as tickets.\n• Insights from sentiment analysis help your team prioritize smarter.\n• Save money and improve response times.",
+        "Your team saves time, support becomes faster, and key insights help you serve customers better. Complex queries are escalated to your team.",
     },
     {
       question: "Is the AI customizable for different industries or workflows?",
       answer:
-        "Yes, it is adaptable to different industries, but we currently do not support advanced custom workflows.",
+        "Yes, we support most industries and use cases. Custom workflows are limited for now but coming soon.",
     },
     {
       question: "Does this replace or support human agents?",
       answer:
-        "It augments them — the AI handles routine queries, while edge cases are escalated to humans.",
+        "It supports them. AI handles routine chats, while your team focuses on high-value conversations.",
     },
     {
       question: "Can it support multiple languages?",
       answer:
-        "Not yet — multilingual support is on our roadmap for future updates.",
+        "Not yet, but it’s on our roadmap. English is fully supported today.",
     },
-
     {
       question: "Where is my data stored and how is it secured?",
       answer:
-        "All data is securely stored in Singapore using AWS and Azure infrastructure.",
+        "Your data is stored in secure data centers managed by AWS and Azure, with encryption both at rest and in transit. We follow enterprise-grade security practices, and never share your data with third parties.",
     },
     {
       question: "Is customer data used to train the AI?",
       answer:
-        "Yes, but only to improve your own assistant — data is not shared or used elsewhere.",
+        "No, your customer data is not used to train our AI by default. You can choose to enable training with your data for better personalization—but it’s always opt-in and fully under your control.",
     },
     {
       question: "What is the integration process like?",
       answer:
-        "• Answer a short onboarding questionnaire.\n• Share files like product catalogs, service guides, etc.\n• We deploy your assistant to WhatsApp, Instagram, Facebook Messenger, and your website.",
+        "You can easily connect your WhatsApp, Instagram, Facebook Messenger, or even third-party tools like Shopify and CRMs using secure APIs. Just fill out a short onboarding form, and we guide you through the setup step-by-step.",
     },
+
     {
       question: "How long does it take to go live?",
-      answer: "Typically 10–20 minutes once we have the required info.",
-    },
-    {
-      question: "What’s the pricing model?",
-      answer:
-        "It will be subscription-based, but pricing details will be announced post-seed round.",
-    },
-    {
-      question: "Are there any upfront costs?",
-      answer: "No upfront costs.",
-    },
-    {
-      question: "Is there a trial or beta available?",
-      answer:
-        "Yes! You can either:\n• Join our beta program for early access.\n• Or try a 2-week free trial.",
-    },
-    {
-      question: "What kind of support do you provide?",
-      answer:
-        "• 24/7 setup and onboarding support.\n• 48-hour resolution window for business-facing tickets.",
+      answer: "Usually 10 to 20 minutes after we get your information.",
     },
     {
       question:
         "Will this work with my existing tools (like CRM or ticketing systems)?",
       answer:
-        "We’re building integrations — for now, please reach out to info@turiniq.com with your use case.",
+        "We’re working on integrations. Let us know your tools and we’ll find a way to support them.",
+    },
+    {
+      question: "What’s the pricing model?",
+      answer: "Subscription-based. We’ll announce pricing soon.",
+    },
+    {
+      question: "Is there a trial or beta available?",
+      answer:
+        "Yes. You can join our beta or try a 2-week free trial to see it in action.",
+    },
+    {
+      question: "What kind of support do you provide?",
+      answer:
+        "We offer 24/7 onboarding help and resolve any business queries within 48 hours.",
     },
   ];
 
@@ -245,11 +238,13 @@ export default function Home() {
       <Hero
         title={
           <>
-            Customer Conversations - Unified, Simplified,{" "}
-            <span className="text-primary-gradient">Supercharged</span> ✧
+            Meet Your Ideal{" "}
+            <span className="text-primary-gradient text-balance">
+              Sales & Support Teammate ✧
+            </span>
           </>
         }
-        subtitle="From WhatsApp to your website—TurinIQ brings all your customer chats into one smart platform, powered by AI and built for growth."
+        subtitle="From WhatsApp to your website — TurinIQ brings every customer conversation into one AI-powered inbox that sells, supports, and scales with you."
       />
 
       {/* Clients Logo Section */}
@@ -257,16 +252,14 @@ export default function Home() {
 
       {/* Feature Section 1 */}
       <StatSection
-        tagline="Content Section"
+        tagline="Built for Speed. Designed for Scale."
         title={
           <>
-            Always{" "}
-            <span className="text-primary-gradient">
-              -On Support. Instant Setup
-            </span>
+            <span className="text-primary-gradient">Always-On Support.</span>{" "}
+            Setup in Minutes.
           </>
         }
-        description="Step into a smarter way of handling customer queries—without the wait or the hassle. TurinIQ empowers your team to launch fast and stay responsive, all day, every day."
+        description="Deliver instant, AI-powered support without delays or downtime. With TurinIQ, your team launches fast, stays available 24/7, and never misses a customer again — even when you're offline."
         features={features}
         stats={stats}
         layout="grid"
@@ -275,52 +268,47 @@ export default function Home() {
 
       {/* Feature Section 2 */}
       <FeatureSection
-        // tagline="Content Section"
+        tagline="Fast Onboarding, Zero Headaches"
         backgroundColor="white"
         title={
           <>
-            Set up in 3 simple steps
-            {/* <br /> */}
-            {/* and core features */}
+            Set Up in 3 Simple Steps —{" "}
+            <span className="text-primary-gradient">Live in 10 Minutes</span>
           </>
         }
-        description="Whether you're a tech pro or just getting started, TurinIQ is built for ease. Get your support system live in just minutes—no code, no complications."
+        description="TurinIQ is built for speed and simplicity. Whether you're a founder, marketer, or support lead, getting started takes minutes. No developers, no code, no stress — just instant value."
         features={[
           {
             id: "channel",
-            title: "Connect Your Channels",
+            title: "Connect Channels in 1 Click",
             description:
-              "Link WhatsApp, Instagram, Facebook, or your website in just a few clicks.",
+              "Link WhatsApp, Instagram, Facebook, or your website with a single login.",
             icon: "../",
             bulletPoints: [
-              "Unified inbox setup for all channels from Day 1",
-              "No technical setup—just login and authorize access",
+              "Unified inbox for all customer conversations",
+              "No tech setup — just login and connect",
             ],
-            // bulletPoints = [
-            //   "Unified inbox setup for all channels from Day 1",
-            //   "No technical setup—just login and authorize access",
-            // ],
           },
           {
             id: "bot",
-            title: "Customize Your Chatbot",
+            title: "Train Your AI Teammate",
             description:
-              "Use our drag-and-drop flow builder to train your bot—zero coding needed.",
+              "Customize your AI with ease — no code or complex logic required.",
             icon: "https://spectra-template.framer.website/#svg-203503966_589",
             bulletPoints: [
-              " Simple Chat interface for setting up",
-              "Easily set up FAQ responses or escalation paths to human agents",
+              "Just upload documents and let it learn",
+              "Tell it when to escalate and define sales flows in plain English",
             ],
           },
           {
             id: "live",
-            title: "Go Live Instantly",
+            title: "Go Live & Engage Instantly",
             description:
-              "Deploy with one click and start engaging customers right away.",
+              "Launch in one click and start chatting with customers immediately.",
             icon: "https://spectra-template.framer.website/#svg-203503966_589",
             bulletPoints: [
-              "Enable human takeover and fallback routing from launch",
-              "Monitor real-time conversations directly from the dashboard",
+              "Fallback to human support when needed",
+              "Track chats and performance as it happens",
             ],
           },
         ]}
@@ -335,10 +323,10 @@ export default function Home() {
         tagline="Product Demo"
         title={
           <>
-            See TurinIQ <span className="text-primary-gradient">in Action</span>
+            See <span className="text-primary-gradient">TurinIQ</span> in Action
           </>
         }
-        description="Whether you're running a retail store or scaling your tech service, TurinIQ makes customer communication seamless and smart."
+        description="Turn every chat into a win—see how TurinIQ helps you support, sell, and scale from one powerful dashboard."
         features={features}
         // stats={stats}
         layout="grid"

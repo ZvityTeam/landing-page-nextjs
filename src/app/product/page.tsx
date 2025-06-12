@@ -1,14 +1,11 @@
-import { Hero } from "@/components/sections/product-hero";
-import { FeatureSection } from "@/components/sections/feature-section";
 import { Faq } from "@/components/sections/faq";
-import { Testimonials } from "@/components/sections/testimonials";
-import { Button } from "@/components/ui/button";
-import { ClientsLogo } from "@/components/sections/clients-logo";
-import Image from "next/image";
-import { Check } from "lucide-react";
+import { FeatureSection } from "@/components/sections/feature-section";
+import { Hero } from "@/components/sections/product-hero";
 import { SeparatorSection } from "@/components/sections/separator-section";
-import product1 from "../../assets/product-hero1.png";
 import { TrialSection } from "@/components/sections/trial-section";
+import { Check } from "lucide-react";
+import Image from "next/image";
+import product1 from "../../assets/product-hero1.png";
 
 export default function ProductPage() {
   const integrations = [
@@ -36,18 +33,6 @@ export default function ProductPage() {
       name: "Salesforce",
       icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/salesforce.svg",
     },
-    // {
-    //   name: "Zendesk",
-    //   icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/zendesk.svg",
-    // },
-    // {
-    //   name: "HubSpot",
-    //   icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/hubspot.svg",
-    // },
-    // {
-    //   name: "Zoho",
-    //   icon: "https://cdnjs.cloudflare.com/ajax/libs/simple-icons/8.12.0/zoho.svg",
-    // },
   ];
 
   // Feature data
@@ -56,7 +41,7 @@ export default function ProductPage() {
       id: "feature-1",
       title: "Intuitive Dashboard",
       description:
-        "Access all your data and tools from one centralized, user-friendly dashboard designed for efficiency.",
+        "One view for all conversations, tickets, and performance—built to keep your team in sync and focused.",
       icon: "https://ext.same-assets.com/1405474887/260646423.svg",
       iconColor: "bg-orange-100",
     },
@@ -64,23 +49,23 @@ export default function ProductPage() {
       id: "feature-2",
       title: "Seamless Integration",
       description:
-        "Connect with your existing tools and workflows through our comprehensive API and pre-built integrations.",
+        "Connect your WhatsApp, Instagram, Shopify, or CRM in minutes using our simple API and plug-and-play setup.",
       icon: "https://ext.same-assets.com/1405474887/1998606599.svg",
       iconColor: "bg-blue-100",
     },
     {
       id: "feature-3",
-      title: "Advanced Analytics",
+      title: "Actionable Analytics",
       description:
-        "Gain actionable insights with powerful analytics tools that transform your data into clear visualizations.",
+        "Turn chats into insights. Track customer behavior, agent responsiveness, and support trends to drive better decisions.",
       icon: "https://ext.same-assets.com/1405474887/2018733539.svg",
       iconColor: "bg-green-100",
     },
     {
       id: "feature-4",
-      title: "Cloud Security",
+      title: "Enterprise-Grade Security",
       description:
-        "Rest easy knowing your data is protected by enterprise-grade security protocols and regular updates.",
+        "Your data is encrypted, stored on AWS & Azure, and protected by audit logs, role-based access, and compliance checks.",
       icon: "https://ext.same-assets.com/1508219890/111633572.svg",
       iconColor: "bg-purple-100",
     },
@@ -113,7 +98,6 @@ export default function ProductPage() {
       answer:
         "Not yet — multilingual support is on our roadmap for future updates.",
     },
-
     {
       question: "Where is my data stored and how is it secured?",
       answer:
@@ -186,22 +170,22 @@ export default function ProductPage() {
 
   const featuresData = [
     {
-      iconPath: "/icons/sep1.png", // Replace with actual path
-      title: "Save on Operational Costs",
+      iconPath: "/icons/sep2.png",
+      title: "One Inbox to rule them all",
       description:
-        "Reduce your dependence on large support teams by automating routine queries and workflows with smart AI.",
+        "WhatsApp, Instagram, Messenger, and your website—all managed from a single, AI-powered interface with smart routing and escalation.",
     },
     {
-      iconPath: "/icons/sep2.png", // Replace with actual path
-      title: "Stay Organized Across Channels",
+      iconPath: "/icons/sep3.png",
+      title: "Built-In Ticketing, Zero Chaos",
       description:
-        "Manage all your customer conversations—from WhatsApp to your website—through a single, unified platform.",
+        "Auto-create and track tickets from chats, so nothing falls through the cracks—even when your team is offline.",
     },
     {
-      iconPath: "/icons/sep3.png", // Replace with actual path
-      title: "Make Smarter Business Decisions",
+      iconPath: "/icons/sep1.png",
+      title: "Insights That Cut Costs",
       description:
-        "Use AI-powered insights from customer interactions to refine your support strategy and boost engagement.",
+        "Track customer trends, agent performance, and common queries—so you reduce support overhead and make faster decisions.",
     },
   ];
 
@@ -211,15 +195,14 @@ export default function ProductPage() {
       <Hero
         title={
           <>
-            Where Customer Conversations
+            Turn Conversations into
             <br />
             <span className="text-primary-gradient">
-              Become Business Superpower
+              Revenue, Loyalty & Speed
             </span>
           </>
         }
-        subtitle="TurinIQ brings all your support channels into one AI-powered platform—automating the boring, organizing the messy, and uncovering insights that actually move your business forward.
-"
+        subtitle="Unify support, capture leads, auto-escalate tickets, and track every conversation—TurinIQ turns chats into insights and action that drive growth."
         showVideo={true}
         alignment="center"
         tagline="MEET TURINIQ"
@@ -232,12 +215,14 @@ export default function ProductPage() {
         tagline="CORE FEATURES"
         title={
           <>
-            Why Businesses
+            Built for Teams Who
             <br />
-            <span className="text-primary-gradient"> Love TurinIQ</span>
+            <span className="text-primary-gradient">
+              Value Every Conversation
+            </span>
           </>
         }
-        description="Discover how TurinIQ supercharges customer interactions and simplifies support — all from one intelligent platform."
+        description="From AI-powered ticketing to deep analytics, TurinIQ brings structure, speed, and insights to your customer conversations—all in one place."
         features={features}
         layout="marquee"
         backgroundColor="bg-background"
@@ -251,39 +236,33 @@ export default function ProductPage() {
                 Smart Support
               </span>
               <h2 className="heading-secondary mb-6">
-                Deliver instant, intelligent, and personal service—without
-                lifting a finger.
+                Support That Sorts Itself.
               </h2>
               <p className="text-muted-foreground mb-8">
-                TurinIQ’s AI support tools are designed to automate the
-                repetitive and escalate what matters—so your team stays focused
-                on what truly needs a human touch.
+                TurinIQ blends always-on AI agents with smart human handoff—so
+                you resolve tickets faster, handle more queries, and never miss
+                a beat.
               </p>
-
               <div className="space-y-4 mb-8">
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-primary">
                     <Check size={18} />
                   </div>
-                  <p>AI Agents That Work 24/7</p>
+                  <p>24/7 AI-Powered Responses</p>
                 </div>
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-primary">
                     <Check size={18} />
                   </div>
-                  <p>Smart Human Escalation</p>
+                  <p>Automatic Escalation to Human Agents</p>
                 </div>
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-primary">
                     <Check size={18} />
                   </div>
-                  <p>Unified Inbox for All Channels</p>
+                  <p>All Conversations in One Inbox</p>
                 </div>
               </div>
-
-              {/* <Button className="rounded-full bg-primary hover:bg-primary/90">
-                Explore Dashboard
-              </Button> */}
             </div>
             <div className="relative">
               <div className="rounded-xl overflow-hidden shadow-lg">
@@ -330,7 +309,6 @@ export default function ProductPage() {
                 With TurinIQ’s centralized control center, you get the
                 visibility and flexibility to operate with confidence and speed.
               </p>
-
               <div className="space-y-4 mb-8">
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-primary">
@@ -342,19 +320,15 @@ export default function ProductPage() {
                   <div className="mt-1 mr-3 text-primary">
                     <Check size={18} />
                   </div>
-                  <p>Customizable Dashboard Widgets</p>
+                  <p>Gaps flagged. Smarter every time</p>
                 </div>
                 <div className="flex items-start">
                   <div className="mt-1 mr-3 text-primary">
                     <Check size={18} />
                   </div>
-                  <p>Multi-device Sync</p>
+                  <p>Track Support Trends and Bottlenecks</p>
                 </div>
               </div>
-
-              {/* <Button className="rounded-full bg-primary hover:bg-primary/90">
-                Discover Analytics
-              </Button> */}
             </div>
           </div>
         </div>
@@ -364,17 +338,16 @@ export default function ProductPage() {
         <div className="container-custom">
           <div className="text-center mb-16">
             <span className="inline-block text-xs font-semibold tracking-wider text-primary uppercase mb-3">
-              Business-Ready Integrations
+              Seamless Integrations
             </span>
             <h2 className="heading-secondary mb-4">
-              Built to scale with you—whatever tools you use.
+              Built to scale—connect your stack.
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Whether you're a startup or enterprise, TurinIQ plugs into your
-              existing ecosystem and grows with you.
+              From startups to enterprises, TurinIQ integrates effortlessly with
+              your existing tools and workflows.
             </p>
           </div>
-
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {integrations.map((integration, i) => (
               <div
@@ -394,12 +367,85 @@ export default function ProductPage() {
               </div>
             ))}
           </div>
-
-          {/* <div className="mt-12 text-center">
-            <Button className="rounded-full bg-primary hover:bg-primary/90">
-              View All Integrations
-            </Button>
-          </div> */}
+        </div>
+      </section>
+      {/* Security Feature */}
+      <section className="py-16 md:py-24 bg-background">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <span className="inline-block text-xs font-semibold tracking-wider text-primary uppercase mb-3">
+              Data Protection
+            </span>
+            <h2 className="heading-secondary mb-4">Security You Can Trust</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              TurinIQ is built with enterprise-grade security to keep your data
+              safe, isolated, and protected at every step.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-muted-foreground mb-8">
+                Our platform ensures your business operates in a secure,
+                isolated environment with strict controls and industry-best
+                practices.
+              </p>
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start">
+                  <div className="mt-1 mr-3 text-primary">
+                    <Check size={18} />
+                  </div>
+                  <p>
+                    <strong>Business Isolation:</strong> Each business is
+                    assigned a unique tenant ID, ensuring no cross-business data
+                    access.
+                  </p>
+                </div>
+                <div className="flex items-start">
+                  <div className="mt-1 mr-3 text-primary">
+                    <Check size={18} />
+                  </div>
+                  <p>
+                    <strong>Chat Session Security:</strong> Every user chat is
+                    isolated with a unique session ID, encrypted, and
+                    access-controlled.
+                  </p>
+                </div>
+                <div className="flex items-start">
+                  <div className="mt-1 mr-3 text-primary">
+                    <Check size={18} />
+                  </div>
+                  <p>
+                    <strong>End-to-End Encryption:</strong> All data is
+                    encrypted at rest and in transit, leveraging AWS and Azure
+                    infrastructure.
+                  </p>
+                </div>
+                <div className="flex items-start">
+                  <div className="mt-1 mr-3 text-primary">
+                    <Check size={18} />
+                  </div>
+                  <p>
+                    <strong>AI Privacy:</strong> Powered by OpenAI APIs in
+                    stateless mode, with no data retention or training unless
+                    you opt-in.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src="/assets/security.png"
+                  alt="TurinIQ Security Architecture Diagram"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto"
+                />
+              </div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-xl -z-10" />
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-secondary/20 rounded-full blur-xl -z-10" />
+            </div>
+          </div>
         </div>
       </section>
       {/* Testimonials
@@ -413,32 +459,10 @@ export default function ProductPage() {
         backgroundColor="bg-background"
       /> */}
       {/* CTA Section */}
-      {/* <section className="py-16 md:py-24 bg-primary/5">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="heading-secondary mb-6">
-              Ready to transform your business?
-            </h2>
-            <p className="text-muted-foreground mb-8 text-lg">
-              Start your free trial today and experience the power of Spectra
-              firsthand. No credit card required.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button className="rounded-full bg-primary hover:bg-primary/90 text-lg px-8 py-6">
-                Start Free Trial
-              </Button>
-              <Button className="rounded-full bg-background border border-primary text-primary hover:bg-primary/5 text-lg px-8 py-6">
-                Request Demo
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section> */}
-            <TrialSection />
+      <TrialSection />
       {/* FAQ Section */}
       <Faq
         faqs={faqs}
-        // categories={["General", "Technical", "Support"]}
         tagline="COMMON QUESTIONS"
         title="Frequently Asked Questions"
         description="Find answers to common questions about our product, features, and how it can benefit your business."

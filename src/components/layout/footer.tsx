@@ -1,9 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Facebook, Twitter, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -21,8 +18,7 @@ const Footer = () => {
               </div>
             </Link>
             <p className="text-muted-foreground mb-6">
-              Leave mediocrity behind and embark on a journey of exploration
-              with TurinIQ as your trusted companion.
+              Clarity in every customer moment.
             </p>
             {/* <div className="flex space-x-4">
               <Link
