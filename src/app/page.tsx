@@ -3,6 +3,7 @@ import { FeatureSection } from "@/components/sections/feature-section";
 import { Hero } from "@/components/sections/hero";
 import { StatSection } from "@/components/sections/stat-section";
 import { TrialSection } from "@/components/sections/trial-section";
+import { UseCaseSection } from "@/components/sections/UseCaseSection";
 
 export default function Home() {
   // Demo data for feature section
@@ -332,6 +333,7 @@ export default function Home() {
         layout="grid"
         image="/assets/product-hero.png"
       />
+      <UseCaseSection />
 
       {/* Pricing Section */}
       {/* <Pricing tiers={pricingTiers} backgroundColor="bg-muted/30" /> */}

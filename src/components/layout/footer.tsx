@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Button } from "../ui/button";
 
 const Footer = () => {
   return (
@@ -20,6 +21,16 @@ const Footer = () => {
             <p className="text-muted-foreground mb-6">
               Clarity in every customer moment.
             </p>
+            <div className="mt-5 text-muted-foreground">
+              <Button
+                asChild
+                className="rounded-full bg-primary hover:bg-primary/90 text-md px-8 py-6"
+              >
+                <Link href="/assets/TurinIQ.pdf" download>
+                  Download Full Brochure
+                </Link>
+              </Button>
+            </div>
             {/* <div className="flex space-x-4">
               <Link
                 href="https://www.twitter.com"
