@@ -87,7 +87,7 @@ export function Hero({
           </AnimatedSection>
           <AnimatedSection direction="up" delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Link href="https://www.turiniq.com/">
+              <Link href="https://100xturiniq.vercel.app/">
               <Button
                 className="bg-primary hover:bg-primary/90 rounded-full"
               >
