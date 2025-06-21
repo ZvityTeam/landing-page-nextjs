@@ -8,6 +8,7 @@ import { useState } from "react";
 import heroImage from "../../assets/hero.png";
 import { AnimatedImage } from "../ui/animated-image";
 import { AnimatedSection } from "../ui/animated-section";
+import Link from "next/link";
 
 interface HeroProps {
   title: React.ReactNode;
