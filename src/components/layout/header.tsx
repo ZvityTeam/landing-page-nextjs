@@ -77,7 +77,7 @@ const Header = () => {
         </nav>
 
         {/* Sign Up Button */}
-        <Link href="https://www.turiniq.com/">
+        <Link href="https://100xturiniq.vercel.app/">
         <Button
           className="hidden md:block bg-primary hover:bg-primary/90 rounded-full"
         >
