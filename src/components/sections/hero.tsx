@@ -89,7 +89,6 @@ export function Hero({
               <Link href="https://www.turiniq.com/">
               <Button
                 className="bg-primary hover:bg-primary/90 rounded-full"
-{/*                 onClick={handleScrollToAccess} */}
               >
                 Try Early Demo
               </Button>
