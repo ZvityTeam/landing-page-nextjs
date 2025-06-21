@@ -77,13 +77,14 @@ const Header = () => {
         </nav>
 
         {/* Sign Up Button */}
+        <Link href="https://www.turiniq.com/">
         <Button
-          onClick={handleScrollToAccess}
+{/*           onClick={handleScrollToAccess} */}
           className="hidden md:block bg-primary hover:bg-primary/90 rounded-full"
         >
-          Get Early Access
+          Try Early Demo
         </Button>
-
+</Link>
         {/* Mobile Menu */}
         <div className="md:hidden">
           <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
