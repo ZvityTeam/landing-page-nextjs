@@ -86,14 +86,14 @@ export function Hero({
           </AnimatedSection>
           <AnimatedSection direction="up" delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* <Link href="#access"> */}
+              <Link href="https://www.turiniq.com/">
               <Button
                 className="bg-primary hover:bg-primary/90 rounded-full"
-                onClick={handleScrollToAccess}
+{/*                 onClick={handleScrollToAccess} */}
               >
-                Get Early Access
+                Try Early Demo
               </Button>
-              {/* </Link> */}
+              </Link>
               {showVideo && (
                 <Dialog open={videoOpen} onOpenChange={setVideoOpen}>
                   <DialogTrigger asChild>
