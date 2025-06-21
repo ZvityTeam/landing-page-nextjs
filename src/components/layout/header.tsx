@@ -79,7 +79,6 @@ const Header = () => {
         {/* Sign Up Button */}
         <Link href="https://www.turiniq.com/">
         <Button
-{/*           onClick={handleScrollToAccess} */}
           className="hidden md:block bg-primary hover:bg-primary/90 rounded-full"
         >
           Try Early Demo
